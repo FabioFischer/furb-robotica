@@ -12,3 +12,11 @@ Assim que retornar a sua posição inicial, deve ser utilizado o algorítmo de d
 
 Tempo de mapeamento do cenário:                     00:04:19
 Tempo de caminhamento entre posições marcadas:      00:02:41
+
+# Trabalho 03
+
+Desenvolver um robô que seja capaz de obter informações sobre a sua localização, pontos de referência da meta e dos obstáculos, a partir de imagens capturadas por uma câmera posicionada sobre o ambiente.
+O algorítmo de processamento de imagem utiliza a biblioteca Java Advanced Imaging. A aplicação deve:
+    * Mapear e navegar pelo ambiente a partir de uma imagem de entrada 
+    * Utilizar processamento de imagens para descobrir robô, obstáculos e objetivo. A partir da interpretação da imagem, você deve representar os elementos encontrados através de uma matriz. Ou seja, você precisa indicar a localização do robô, obstáculos e qual será o caminho que o robô fará para atingir o objetivo. 
+    * Utilizar o algoritmo wavefront para realizar o planejamento e navegação do robô
