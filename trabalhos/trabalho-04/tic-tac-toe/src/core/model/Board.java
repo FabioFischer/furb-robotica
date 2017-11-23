@@ -1,6 +1,7 @@
 package core.model;
 
 import core.game.Game;
+import java.util.ArrayList;
 
 /**
  * @author fabio.fischer
@@ -42,9 +43,8 @@ public class Board {
      * @param mark
      */
     public void newMove(Move move, Game.Mark mark) {
-            if (board[move.getX()][move.getY()] != Game.Mark.EMPTY)
-                throw new IllegalArgumentException("This position is already filled, brah");
-            board[move.getX()][move.getY()] = mark;
+            if (board[move.getX()][move.getY()] == Game.Mark.EMPTY)
+                board[move.getX()][move.getY()] = mark;
     }
 
     /**
@@ -155,6 +155,22 @@ public class Board {
             mark = getDrawGame();
 
         return mark;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Move> getAvailableMoves() {
+        ArrayList<Move> moves = new ArrayList<Move>();
+
+        for (int i = 0; i < BOARD_LENGTH; i++) {
+            for (int j = 0; j < BOARD_LENGTH; j++) {
+                if (board[i][j] == Game.Mark.EMPTY)
+                    moves.add(new Move(i, j));
+            }
+        }
+        return moves;
     }
 
     @Override

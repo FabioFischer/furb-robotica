@@ -5,7 +5,7 @@ import core.game.Game;
 /**
  * @author fabio.fischer
  */
-public class Player {
+public abstract class Player {
     private Game.Mark mark;
 
     public Player(Game.Mark mark) {

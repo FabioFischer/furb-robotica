@@ -27,6 +27,8 @@ public class Game {
 
     private Mark winner;
 
+    private Mark turn;
+
     /**
      *
      */
@@ -34,21 +36,12 @@ public class Game {
         this.board = new Board();
     }
 
-    /**
-     *
-     * @param player1
-     * @param player2
-     */
-    public Game(Player player1, Player player2) {
-        this.board = new Board();
-        newGame(player1, player2);
-    }
 
     /**
      *
      * @param playerMark
      */
-    public void newGame(Player player1, Player player2) {
+    public void newGame() {
         board.clearBoard();
     }
 
@@ -63,13 +56,53 @@ public class Game {
             Move move = new Move(x, y);
             board.newMove(move, p.getMark());
             winner = board.getWinner(move, p.getMark());
-
+            turn = p.getMark();
             System.out.println(this.toString());
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public Game clone() {
+        Game other = new Game();
+        other.board = this.board;
+        other.winner = this.winner;
+        other.turn = this.turn;
+        return other;
+    }
+
+    /**
+     *
+     * @return
+     */
     public Mark getWinner() {
         return winner;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Board getBoard() {
+        return board;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Mark getTurn() {
+        return turn;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean isOver() {
+        return winner != null;
     }
 
     @Override
